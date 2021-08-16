@@ -9,9 +9,11 @@ public interface ICustomerService {
 
 	public Customer createCustomer(Customer c);
 	public List<Customer> listCustomers();
-	public Customer deleteCustomer(Customer c);
+	public void deleteCustomer(int id);
 	public Customer updateCustomer(Customer c);
-	public Customer viewCustomer(Customer c);
+	public Customer viewCustomer(int id);
+	
+//	waiting
 	public List<Customer> listAllCustomersByBook(Book book);
 
 	
