@@ -3,6 +3,8 @@ package com.project.entities;
 import java.time.LocalDate;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -12,16 +14,16 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "book")
 public class Book {
-	
+
 	@Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int bookId;
-	
+
 	private String title;
 	private String author;
-	
-	@OneToOne
-	private Category category;
+
+	@Enumerated(EnumType.STRING)
+	private CategoryEnum category;
 	private String description;
 	private String isbn;
 	private double price;
@@ -33,7 +35,7 @@ public class Book {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Book(int bookId, String title, String author, Category category, String description, String isbn,
+	public Book(int bookId, String title, String author, CategoryEnum category, String description, String isbn,
 			double price, LocalDate publishDate, LocalDate lastUpdatedOn) {
 		super();
 		this.bookId = bookId;
@@ -71,11 +73,11 @@ public class Book {
 		this.author = author;
 	}
 
-	public Category getCategory() {
+	public CategoryEnum getCategory() {
 		return category;
 	}
 
-	public void setCategory(Category category) {
+	public void setCategory(CategoryEnum category) {
 		this.category = category;
 	}
 
