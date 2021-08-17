@@ -18,15 +18,13 @@ public class BookOrder {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int orderId;
 	
-	@OneToOne(targetEntity = Customer.class)
-	@JoinColumn(name="customerId")
+	@OneToOne()
 	private Customer customer;
 	private LocalDate orderDate;
 	private double orderTotal;
 	private String status;
 	
-	@OneToOne(targetEntity = Address.class)
-	@JoinColumn(name="addressId")
+	@OneToOne()
 	private Address ShippingAddress;
 	private String paymentMethod;
 	private String recipientName;

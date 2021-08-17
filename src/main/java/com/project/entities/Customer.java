@@ -16,7 +16,7 @@ import javax.persistence.Table;
 public class Customer {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int customerId;
 
 	private String email;
@@ -25,6 +25,7 @@ public class Customer {
 
 	@OneToOne(cascade = CascadeType.ALL)
 	private Address address;
+	
 	private String mobileNumber;
 	private LocalDate registerOn;
 	private String userType;
@@ -51,6 +52,14 @@ public class Customer {
 
 	public void setCustomerId(int customerId) {
 		this.customerId = customerId;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public String getFullName() {
@@ -93,14 +102,6 @@ public class Customer {
 		this.registerOn = registerOn;
 	}
 
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
 	public String getUserType() {
 		return userType;
 	}
@@ -115,5 +116,7 @@ public class Customer {
 				+ password + ", address=" + address + ", mobileNumber=" + mobileNumber + ", registerOn=" + registerOn
 				+ ", userType=" + userType + "]";
 	}
+	
+	
 
 }
