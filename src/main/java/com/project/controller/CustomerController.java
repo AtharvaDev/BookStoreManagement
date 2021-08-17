@@ -1,6 +1,5 @@
 package com.project.controller;
 
-
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +22,7 @@ import com.project.service.CustomerService;
 public class CustomerController {
 	
 	@Autowired
-	private CustomerService customerService;
+	private CustomerService service;
 	
 	@GetMapping("/test")
 	public String test() {
@@ -32,31 +31,29 @@ public class CustomerController {
 	
 	@GetMapping("/")
 	public List<Customer> listCustomers() {
-		return customerService.listCustomers();
+		return service.listCustomers();
 	}
 	
 	@GetMapping("/{id}")
 	public Customer viewCustomer(@PathVariable("id") int id) {
-		return customerService.viewCustomer(id);
+		return service.viewCustomer(id);
 	}
 	
 	@PostMapping("/")
-//	in post mapping data is added in json format through postman after that 
-//	you must convert it to java object this conversion of json to java object is managed by RequestBody annotation
+//	in post mapping data is added in json format through postman after that you must convert it to java object this conversion of json to java object is managed by RequestBody annotation
 	public Customer createCustomer(@RequestBody Customer customer) {
-		return customerService.createCustomer(customer);	
+		return service.createCustomer(customer);	
 	}
 	
 	@PutMapping("/{id}")
 	public Customer updateCustomer(@RequestBody Customer customer) {
-		return customerService.updateCustomer(customer);	
+		return service.updateCustomer(customer);	
 	}
 	
 	@DeleteMapping("/{id}")
 	public String deleteCustomer(@PathVariable("id") int id) {
-		customerService.deleteCustomer(id);
+		 service.deleteCustomer(id);
 		return id+" deleted";
 	}
-
 
 }

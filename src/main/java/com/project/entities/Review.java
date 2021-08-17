@@ -18,11 +18,11 @@ public class Review {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int reviewId;
 	
-	@OneToOne(targetEntity = Book.class)
+	@OneToOne(targetEntity = Book.class )
 	@JoinColumn(name="bookId")
 	private Book book;
 	
-	@OneToOne(targetEntity = Customer.class)
+	@OneToOne(targetEntity=Customer.class)
 	@JoinColumn(name="customerId")
 	private Customer customer;
 	private String headLine;

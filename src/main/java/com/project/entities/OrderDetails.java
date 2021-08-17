@@ -19,8 +19,7 @@ public class OrderDetails {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int orderDetailsId;
 	
-	@OneToOne(targetEntity = Book.class)
-	@JoinColumn(name="bookId")
+	@OneToOne()
 	private Book book;
 	
 	@OneToOne(targetEntity = BookOrder.class)

@@ -8,7 +8,7 @@ import com.project.entities.User;
 @Repository
 public interface ILoginRepository extends JpaRepository<User, Integer>{
 
-	public User addUser(User user);
-	public User removeUser(User user);
-	public User validateUser(User user);
+//	public User addUser(User user);
+//	public User removeUser(User user);
+//	public User validateUser(User user);
 }

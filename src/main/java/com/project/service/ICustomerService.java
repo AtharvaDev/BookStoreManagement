@@ -2,8 +2,11 @@ package com.project.service;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import com.project.entities.Book;
 import com.project.entities.Customer;
+
 
 public interface ICustomerService {
 

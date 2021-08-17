@@ -8,11 +8,10 @@ import org.springframework.stereotype.Service;
 import com.project.entities.Book;
 import com.project.entities.Customer;
 import com.project.entities.OrderDetails;
-import com.project.repository.IBookRepository;
 import com.project.repository.IOrderRepository;
 
-
-public class OrderService implements IOrderService{
+@Service
+public class OrderService implements IOrderService {
 
 	@Autowired
 	IOrderRepository OrderRepo;

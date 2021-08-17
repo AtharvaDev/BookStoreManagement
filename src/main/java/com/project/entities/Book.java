@@ -32,9 +32,7 @@ public class Book {
 	private LocalDate lastUpdatedOn;
 
 	public Book() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+		super();}
 
 	public Book(int bookId, String title, String author, CategoryEnum category, String description, String isbn,
 			double price, LocalDate publishDate, LocalDate lastUpdatedOn) {

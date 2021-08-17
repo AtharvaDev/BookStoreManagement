@@ -1,3 +1,4 @@
+
 package com.project.controller;
 
 import java.util.List;
@@ -21,7 +22,7 @@ import com.project.service.OrderService;
 public class OrderController {
 	
 	@Autowired
-	OrderService orderService;
+	OrderService service;
 	
 	@GetMapping("/test")
 	public String test() {
@@ -30,22 +31,21 @@ public class OrderController {
 	
 	@GetMapping("/")
 	public List<OrderDetails> listAllOrders(){
-		return orderService.listAllOrders();
+		return service.listAllOrders();
 	}
 	
 	@GetMapping("/{id}")
 	public OrderDetails listAllOrders(@PathVariable int id){
-		return orderService.listOrdersById(id);
+		return service.listOrdersById(id);
 	}
 	
 	@PostMapping("/")
 	public OrderDetails addOrder(@RequestBody OrderDetails od) {
-		return orderService.addOrder(od);
+		return service.addOrder(od);
 	}
 	
 	@PutMapping("/{id}")
 	public OrderDetails updateOrder(@RequestBody OrderDetails od) {
-		return orderService.updateOrder(od);
+		return service.updateOrder(od);
 	}
-
 }
