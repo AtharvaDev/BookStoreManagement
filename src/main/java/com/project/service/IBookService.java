@@ -13,5 +13,5 @@ public interface IBookService {
 	public String editBook(Book b,int bookID);
 	public Book viewBook(int bookID);
 	public List<Book> listBooksByCategory(String cat);
-	
+	public List<Book> listBestSellingBook();
 }

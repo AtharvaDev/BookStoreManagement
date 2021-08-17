@@ -43,14 +43,20 @@ public class BookService implements IBookService{
 	}
 
 	@Override
-	public Book viewBook(int bookID) {
-		
+	public Book viewBook(int bookID) {		
 		return bookRepo.findById(bookID).get();
 	}
+	
+	//yet to add
 
 	@Override
 	public List<Book> listBooksByCategory(String cat) {
-		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Book> listBestSellingBook() {
+
 		return null;
 	}
 
