@@ -3,6 +3,8 @@ package com.project.entities;
 import java.time.LocalDate;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -14,15 +16,15 @@ import javax.persistence.Table;
 @Table(name = "book")
 public class Book {
 
-	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int bookId;
+
 	private String title;
 	private String author;
-	
-	@OneToOne(targetEntity = Category.class)
-	@JoinColumn(name="categoryId")
-	private Category category;
+
+	@Enumerated(EnumType.STRING)
+	private CategoryEnum category;
+
 	private String description;
 	private String isbn;
 	private double price;
@@ -31,7 +33,7 @@ public class Book {
 	
 	public Book() {}
 
-	public Book(int bookId, String title, String author, Category category, String description, String isbn,
+	public Book(int bookId, String title, String author, CategoryEnum category, String description, String isbn,
 			double price, LocalDate publishDate, LocalDate lastUpdatedOn) {
 		this.bookId = bookId;
 		this.title = title;
@@ -68,11 +70,11 @@ public class Book {
 		this.author = author;
 	}
 
-	public Category getCategory() {
+	public CategoryEnum getCategory() {
 		return category;
 	}
 
-	public void setCategory(Category category) {
+	public void setCategory(CategoryEnum category) {
 		this.category = category;
 	}
 
