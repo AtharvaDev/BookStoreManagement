@@ -22,8 +22,7 @@ public class OrderDetails {
 	@OneToOne()
 	private Book book;
 	
-	@OneToOne(targetEntity = BookOrder.class)
-	@JoinColumn(name="orderId")
+	@OneToOne()
 	private BookOrder bookOrder;
 	private int quantity;
 	private double subtotal;
