@@ -16,11 +16,15 @@ import javax.persistence.Table;
 @Table(name = "book")
 public class Book {
 
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int bookId;
-
 	private String title;
 	private String author;
+	
+//	@OneToOne(targetEntity = Category.class)
+//	@JoinColumn(name="categoryId")
+//	private Category category;
 
 	@Enumerated(EnumType.STRING)
 	private CategoryEnum category;
