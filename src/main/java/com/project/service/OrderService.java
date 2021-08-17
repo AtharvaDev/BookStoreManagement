@@ -18,9 +18,9 @@ public class OrderService implements IOrderService{
 	IOrderRepository OrderRepo;
 	
 // Not needed for now
-//	public OrderDetails listOrdersById(int id) {
-//		return OrderRepo.findById(id).get();
-//	}
+	public OrderDetails listOrdersById(int id) {
+		return OrderRepo.findById(id).get();
+	}
 	
 	@Override
 	public List<OrderDetails> listAllOrders() {

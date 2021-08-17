@@ -33,10 +33,10 @@ public class OrderController {
 		return orderService.listAllOrders();
 	}
 	
-//	@GetMapping("/{id}")
-//	public OrderDetails listAllOrders(@PathVariable int id){
-//		return orderService.listOrdersById(id);
-//	}
+	@GetMapping("/{id}")
+	public OrderDetails listAllOrders(@PathVariable int id){
+		return orderService.listOrdersById(id);
+	}
 	
 	@PostMapping("/")
 	public OrderDetails addOrder(@RequestBody OrderDetails od) {

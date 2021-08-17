@@ -15,9 +15,9 @@ import javax.persistence.Table;
 public class OrderDetails {
 
 	//About to comment this variable
-//	@Id
-//	@GeneratedValue(strategy = GenerationType.IDENTITY)
-//	private int orderDetailsId;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int orderDetailsId;
 	
 	@OneToOne(targetEntity = Book.class)
 	@JoinColumn(name="bookId")
@@ -31,23 +31,23 @@ public class OrderDetails {
 	
 	public OrderDetails() {}
 
-	public OrderDetails(//int orderDetailsId,
+	public OrderDetails(int orderDetailsId,
 			Book book, BookOrder bookOrder, int quantity, double subtotal) {
 	
-		//this.orderDetailsId = orderDetailsId;
+		this.orderDetailsId = orderDetailsId;
 		this.book = book;
 		this.bookOrder = bookOrder;
 		this.quantity = quantity;
 		this.subtotal = subtotal;
 	}
 
-//	public int getOrderDetailsId() {
-//		return orderDetailsId;
-//	}
-//
-//	public void setOrderDetailsId(int orderDetailsId) {
-//		this.orderDetailsId = orderDetailsId;
-//	}
+	public int getOrderDetailsId() {
+		return orderDetailsId;
+	}
+
+	public void setOrderDetailsId(int orderDetailsId) {
+		this.orderDetailsId = orderDetailsId;
+	}
 
 	public Book getBook() {
 		return book;
