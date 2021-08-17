@@ -31,12 +31,11 @@ public class Book {
 	private LocalDate publishDate;
 	private LocalDate lastUpdatedOn;
 
-	public Book() {
-		super();}
+	public Book() {}
 
 	public Book(int bookId, String title, String author, CategoryEnum category, String description, String isbn,
 			double price, LocalDate publishDate, LocalDate lastUpdatedOn) {
-		super();
+		
 		this.bookId = bookId;
 		this.title = title;
 		this.author = author;
