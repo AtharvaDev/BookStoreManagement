@@ -7,11 +7,11 @@ import com.project.entities.Book;
 public interface IBookService {
 
 	
-	public Book createBook(Book b);
+	public String createBook(Book b);
 	public List<Book> listAllBooks();
-	public Book deleteBook(Book b);
-	public Book editBook(Book b);
-	public Book viewBook(Book b);
+	public String deleteBook(int bookID);
+	public String editBook(Book b,int bookID);
+	public Book viewBook(int bookID);
 	public List<Book> listBooksByCategory(String cat);
-	
+	public List<Book> listBestSellingBook();
 }
