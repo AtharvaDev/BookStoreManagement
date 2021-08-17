@@ -16,6 +16,7 @@ public class Book {
 	
 	@Id
 <<<<<<< HEAD
+<<<<<<< HEAD
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int bookId;
 	private String title;
@@ -38,6 +39,16 @@ public class Book {
 	@OneToOne
 	private Category category;
 >>>>>>> parent of 0fe533d (enum added)
+=======
+    @GeneratedValue(strategy = GenerationType.AUTO)
+	private int bookId;
+	
+	private String title;
+	private String author;
+	
+	@OneToOne
+	private Category category;
+>>>>>>> parent of 0fe533d (enum added)
 	private String description;
 	private String isbn;
 	private double price;
@@ -46,6 +57,14 @@ public class Book {
 	
 	public Book() {}
 
+<<<<<<< HEAD
+=======
+	public Book() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+>>>>>>> parent of 0fe533d (enum added)
 	public Book(int bookId, String title, String author, Category category, String description, String isbn,
 			double price, LocalDate publishDate, LocalDate lastUpdatedOn) {
 		this.bookId = bookId;
