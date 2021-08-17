@@ -21,7 +21,7 @@ import com.project.service.OrderService;
 public class OrderController {
 	
 	@Autowired
-	OrderService service;
+	OrderService orderService;
 	
 	@GetMapping("/test")
 	public String test() {
@@ -30,21 +30,22 @@ public class OrderController {
 	
 	@GetMapping("/")
 	public List<OrderDetails> listAllOrders(){
-		return service.listAllOrders();
+		return orderService.listAllOrders();
 	}
 	
-	@GetMapping("/{id}")
-	public OrderDetails listAllOrders(@PathVariable int id){
-		return service.listOrdersById(id);
-	}
+//	@GetMapping("/{id}")
+//	public OrderDetails listAllOrders(@PathVariable int id){
+//		return orderService.listOrdersById(id);
+//	}
 	
 	@PostMapping("/")
 	public OrderDetails addOrder(@RequestBody OrderDetails od) {
-		return service.addOrder(od);
+		return orderService.addOrder(od);
 	}
 	
 	@PutMapping("/{id}")
 	public OrderDetails updateOrder(@RequestBody OrderDetails od) {
-		return service.updateOrder(od);
+		return orderService.updateOrder(od);
 	}
+
 }

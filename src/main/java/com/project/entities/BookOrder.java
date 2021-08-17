@@ -3,35 +3,39 @@ package com.project.entities;
 import java.time.LocalDate;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name ="bookOrder")
 public class BookOrder {
-	
+
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int orderId;
 	
-	@OneToOne
+	@OneToOne(targetEntity = Customer.class)
+	@JoinColumn(name="customerId")
 	private Customer customer;
 	private LocalDate orderDate;
 	private double orderTotal;
 	private String status;
 	
-	@OneToOne
+	@OneToOne(targetEntity = Address.class)
+	@JoinColumn(name="addressId")
 	private Address ShippingAddress;
 	private String paymentMethod;
 	private String recipientName;
 	private String recipientPhone;
-	public BookOrder() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+	
+	public BookOrder() {}
 	public BookOrder(int orderId, Customer customer, LocalDate orderDate, double orderTotal, String status,
 			Address shippingAddress, String paymentMethod, String recipientName, String recipientPhone) {
-		super();
+		
 		this.orderId = orderId;
 		this.customer = customer;
 		this.orderDate = orderDate;

@@ -10,34 +10,36 @@ import com.project.entities.Customer;
 import com.project.repository.ICustomerRepository;
 
 @Service
-public class CustomerService implements ICustomerService {
+public class CustomerService implements ICustomerService{
 
 	@Autowired
-	private ICustomerRepository repo;
+	private ICustomerRepository CustomerRepo;
+	
+	@Override
+	public Customer createCustomer(Customer c) {
+		return CustomerRepo.save(c);
+	}
 
 	@Override
 	public List<Customer> listCustomers() {
-		return repo.findAll();
+		return CustomerRepo.findAll();
 	}
 
-	@Override
-	public Customer viewCustomer(int id) {
-		return repo.findById(id).get();
-	}
-
-	@Override
-	public Customer createCustomer(Customer c) {
-		return repo.save(c);
-	}
-
+	//change return type to string
 	@Override
 	public void deleteCustomer(int id) {
-		repo.deleteById(id);
+		CustomerRepo.deleteById(id);
+		//return "Customer with ${id} deleted"; 
 	}
 
 	@Override
 	public Customer updateCustomer(Customer c) {
-		return repo.save(c);
+		return CustomerRepo.save(c);
+	}
+
+	@Override
+	public Customer viewCustomer(int id) {
+		return CustomerRepo.findById(id).get();
 	}
 
 	@Override

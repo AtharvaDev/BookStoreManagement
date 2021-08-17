@@ -9,51 +9,51 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
-import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "customer")
 public class Customer {
-	
-	
+
 	@Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int customerId;
-	
-	@OneToOne(cascade = CascadeType.ALL)
-	private User user;
+	private String email;
 	private String fullName;
 	private String password;
 	
-	@OneToOne(cascade = CascadeType.ALL)
+	
+	@OneToOne(targetEntity = Address.class,cascade = CascadeType.ALL)
+	@JoinColumn(name="addressId")
 	private Address address;
 	private String mobileNumber;
 	private LocalDate registerOn;
-	public Customer() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
 	
-	public Customer(int customerId, User user, String fullName, String password, Address address, String mobileNumber,
-			LocalDate registerOn) {
-		super();
+	
+	public Customer() {}
+	
+	public Customer(int customerId, String email, String fullName, String password, Address address,
+			String mobileNumber, LocalDate registerOn) {
 		this.customerId = customerId;
-		this.user = user;
+		this.email = email;
 		this.fullName = fullName;
 		this.password = password;
 		this.address = address;
 		this.mobileNumber = mobileNumber;
 		this.registerOn = registerOn;
 	}
-
 	public int getCustomerId() {
 		return customerId;
 	}
 	public void setCustomerId(int customerId) {
 		this.customerId = customerId;
 	}
-	
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
 	public String getFullName() {
 		return fullName;
 	}
@@ -84,22 +84,11 @@ public class Customer {
 	public void setRegisterOn(LocalDate registerOn) {
 		this.registerOn = registerOn;
 	}
-
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
-	}
-
 	@Override
 	public String toString() {
-		return "Customer [customerId=" + customerId + ", user=" + user + ", fullName=" + fullName + ", password="
+		return "Customer [customerId=" + customerId + ", email=" + email + ", fullName=" + fullName + ", password="
 				+ password + ", address=" + address + ", mobileNumber=" + mobileNumber + ", registerOn=" + registerOn
 				+ "]";
 	}
-	
-	
 	
 }

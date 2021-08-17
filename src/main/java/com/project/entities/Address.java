@@ -9,22 +9,19 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "address")
 public class Address {
-	
+
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int addressId;
 	private String address;
 	private String city;
 	private String country;
 	private String pincode;
-
-	public Address() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+	
+	public Address() {}
 
 	public Address(int addressId, String address, String city, String country, String pincode) {
-		super();
+
 		this.addressId = addressId;
 		this.address = address;
 		this.city = city;
@@ -77,5 +74,6 @@ public class Address {
 		return "Address [addressId=" + addressId + ", address=" + address + ", city=" + city + ", country=" + country
 				+ ", pincode=" + pincode + "]";
 	}
+
 
 }

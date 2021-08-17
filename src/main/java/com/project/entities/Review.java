@@ -2,24 +2,39 @@ package com.project.entities;
 
 import java.time.LocalDate;
 
-public class Review {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "review")
+public class Review {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int reviewId;
+	
+	@OneToOne(targetEntity = Book.class)
+	@JoinColumn(name="bookId")
 	private Book book;
+	
+	@OneToOne(targetEntity = Customer.class)
+	@JoinColumn(name="customerId")
 	private Customer customer;
 	private String headLine;
 	private String comment;
 	private double rating;
 	private LocalDate reviewOn;
-
-	public Review() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+	
+	public Review() {	}
 
 	public Review(int reviewId, Book book, Customer customer, String headLine, String comment, double rating,
 			LocalDate reviewOn) {
-		super();
+	
 		this.reviewId = reviewId;
 		this.book = book;
 		this.customer = customer;

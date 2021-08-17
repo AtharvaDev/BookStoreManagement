@@ -6,26 +6,21 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-
 @Entity
 @Table(name = "user")
 public class User {
-	
 	@Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int userId;
-	
-	
 	private String email;
 	private String password;
 	private String role;
-
-	public User() {
-		super();
-	}
+	
+	
+	public User() {}
 
 	public User(int userId, String email, String password, String role) {
-		super();
+	
 		this.userId = userId;
 		this.email = email;
 		this.password = password;
@@ -68,5 +63,4 @@ public class User {
 	public String toString() {
 		return "User [userId=" + userId + ", email=" + email + ", password=" + password + ", role=" + role + "]";
 	}
-
 }

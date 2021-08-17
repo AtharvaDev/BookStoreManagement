@@ -7,6 +7,7 @@ import com.project.entities.Customer;
 
 public interface ICustomerService {
 
+
 	public Customer createCustomer(Customer c);
 	public List<Customer> listCustomers();
 	public void deleteCustomer(int id);
@@ -15,6 +16,5 @@ public interface ICustomerService {
 	
 //	waiting
 	public List<Customer> listAllCustomersByBook(Book book);
-
 	
 }

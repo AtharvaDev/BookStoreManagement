@@ -11,17 +11,14 @@ import javax.persistence.Table;
 public class Category {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int categoryId;
 	private String categoryName;
-
-	public Category() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+	
+	public Category() {}
 
 	public Category(int categoryId, String categoryName) {
-		super();
+
 		this.categoryId = categoryId;
 		this.categoryName = categoryName;
 	}
@@ -47,4 +44,5 @@ public class Category {
 		return "Category [categoryId=" + categoryId + ", categoryName=" + categoryName + "]";
 	}
 
+	
 }
