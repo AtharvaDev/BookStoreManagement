@@ -24,12 +24,25 @@ public class Customer {
 
 	@OneToOne(cascade = CascadeType.ALL)
 	private Address address;
-	
+
 	private String mobileNumber;
 	private LocalDate registerOn;
 	private String userType;
 
 	public Customer() {
+	}
+
+
+	public Customer(String email, String fullName, String password, Address address, String mobileNumber,
+			LocalDate registerOn, String userType) {
+		super();
+		this.email = email;
+		this.fullName = fullName;
+		this.password = password;
+		this.address = address;
+		this.mobileNumber = mobileNumber;
+		this.registerOn = registerOn;
+		this.userType = userType;
 	}
 
 	public Customer(int customerId, String email, String fullName, String password, Address address,
@@ -109,13 +122,12 @@ public class Customer {
 		this.userType = userType;
 	}
 
+
 	@Override
 	public String toString() {
 		return "Customer [customerId=" + customerId + ", email=" + email + ", fullName=" + fullName + ", password="
 				+ password + ", address=" + address + ", mobileNumber=" + mobileNumber + ", registerOn=" + registerOn
 				+ ", userType=" + userType + "]";
 	}
-	
-	
 
 }

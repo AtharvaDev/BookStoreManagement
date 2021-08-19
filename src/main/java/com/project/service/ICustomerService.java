@@ -17,7 +17,7 @@ public interface ICustomerService {
 	public Customer updateCustomer(Customer c);
 	public Customer viewCustomer(int id);
 	
-//	waiting
-	public List<Customer> listAllCustomersByBook(Book book);
+//	done
+	public List<Customer> listAllCustomersByBook(int bookID);
 	
 }

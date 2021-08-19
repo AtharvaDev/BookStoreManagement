@@ -3,6 +3,7 @@ package com.project.repository;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import com.project.entities.Book;
@@ -20,4 +21,7 @@ public interface IReviewRepository extends JpaRepository<Review,Integer> {
 //	public List<Review> listAllReviewsByBook(Book book);
 //	public List<Review> listAllReviewsByCustomer(Customer c);
 //	public List<Book> listMostFavoredBooks();
+	
+
+
 }

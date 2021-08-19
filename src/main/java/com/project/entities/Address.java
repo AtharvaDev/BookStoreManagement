@@ -11,14 +11,23 @@ import javax.persistence.Table;
 public class Address {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int addressId;
 	private String address;
 	private String city;
 	private String country;
 	private String pincode;
-	
-	public Address() {}
+
+	public Address() {
+	}
+
+	public Address(String address, String city, String country, String pincode) {
+		super();
+		this.address = address;
+		this.city = city;
+		this.country = country;
+		this.pincode = pincode;
+	}
 
 	public Address(int addressId, String address, String city, String country, String pincode) {
 
@@ -74,6 +83,5 @@ public class Address {
 		return "Address [addressId=" + addressId + ", address=" + address + ", city=" + city + ", country=" + country
 				+ ", pincode=" + pincode + "]";
 	}
-
 
 }

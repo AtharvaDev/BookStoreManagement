@@ -3,6 +3,7 @@ package com.project.repository;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import com.project.entities.Book;
@@ -21,5 +22,8 @@ public interface IOrderRepository extends JpaRepository<OrderDetails, Integer> {
 //	public OrderDetails updateOrder(OrderDetails od);
 //	public List<OrderDetails> viewOrderByBook(Book book);
 //	public List<Book> listBestSellingBook();
+	
+	@Query("select od from OrderDetails od where od.bookOrder.customer.customerId=?1")
+	public List<OrderDetails> viewOrderForCustomer(int id);
 
 }
