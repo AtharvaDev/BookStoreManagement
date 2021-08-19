@@ -9,10 +9,10 @@ import com.project.entities.Review;
 public interface IReviewService {
 
 	public List<Review> listAllReviews();
-	public Review addReview(Review review);
-	public Review deleteReview(Review review);
-	public Review updateReview(Review review);
-	public Review viewReview(Review review);
+	public String addReview(Review review);
+	public String deleteReview(int reviewID);
+	public String updateReview(Review review,int reviewID);
+	public Review viewReview(int reviewID);
 	public List<Review> listAllReviewsByBook(Book book);
 	public List<Review> listAllReviewsByCustomer(Customer c);
 	public List<Book> listMostFavoredBooks();

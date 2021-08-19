@@ -27,7 +27,7 @@ public class BookService implements IBookService{
 	@Override
 	public String deleteBook(int bookID) {
 		 bookRepo.deleteById(bookID);
-		 return "Book got deleted";
+		 return "Book got deleted with ID"+bookID;
 		
 	}
 
