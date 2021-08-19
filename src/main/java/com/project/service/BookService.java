@@ -1,5 +1,6 @@
 package com.project.service;
 
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,17 +28,19 @@ public class BookService implements IBookService{
 	@Override
 	public String deleteBook(int bookID) {
 		 bookRepo.deleteById(bookID);
-		 return "Book got deleted with ID"+bookID;
+		 return "Book got deleted with ID "+bookID;
 		
 	}
 
 	@Override
 	public String editBook(Book b ,int bookID ) {
+	
 		if(bookRepo.existsById(bookID)) {
+			
 			bookRepo.save(b);
 			return"Book got Updated";
 		}else {
-			return "No such Book exist with this"+bookID+"ID";
+			return "No such Book exist with this ID "+bookID;
 		}
 		
 	}
@@ -47,7 +50,6 @@ public class BookService implements IBookService{
 		return bookRepo.findById(bookID).get();
 	}
 	
-	//yet to add
 
 	@Override
 	public List<Book> listBooksByCategory(String cat) {

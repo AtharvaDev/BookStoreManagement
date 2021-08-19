@@ -2,6 +2,10 @@ package com.project.entities;
 
 public enum CategoryEnum {
 	
-	SCIFI,COMEDY,HORROR,ACTION,DRAMA;
+	SCIFI,
+	COMEDY,
+	HORROR,
+	ACTION,
+	DRAMA;
 
 }
