@@ -16,7 +16,7 @@ public class OrderService implements IOrderService {
 	@Autowired
 	IOrderRepository OrderRepo;
 	
-// Not needed for now
+	@Override
 	public OrderDetails listOrdersById(int id) {
 		return OrderRepo.findById(id).get();
 	}
@@ -27,15 +27,25 @@ public class OrderService implements IOrderService {
 	}
 
 	@Override
-	public List<OrderDetails> listOrderByCustomer(Customer cs) {
-		// TODO Auto-generated method stub
-		return null;
+	public OrderDetails addOrder(OrderDetails od) {
+		return OrderRepo.save(od);
 	}
+	
+	@Override
+	public OrderDetails updateOrder(OrderDetails od) {
+		return OrderRepo.save(od);
+	}
+	
+	@Override
+	public String cancelOrder(int id) {
+		 OrderRepo.deleteById(id);;
+		 return "id deleted";
+	}
+	
 
 	@Override
-	public OrderDetails viewOrderForCustomer(OrderDetails od) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<OrderDetails> viewOrderForCustomer(int id) {
+		return OrderRepo.viewOrderForCustomer(id);
 	}
 
 	@Override
@@ -44,21 +54,6 @@ public class OrderService implements IOrderService {
 		return null;
 	}
 
-	@Override
-	public OrderDetails cancelOrder(OrderDetails od) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public OrderDetails addOrder(OrderDetails od) {
-		return OrderRepo.save(od);
-	}
-
-	@Override
-	public OrderDetails updateOrder(OrderDetails od) {
-		return OrderRepo.save(od);
-	}
 
 	@Override
 	public List<OrderDetails> viewOrderByBook(Book book) {

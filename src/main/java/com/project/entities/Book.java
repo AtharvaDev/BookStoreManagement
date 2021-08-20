@@ -32,6 +32,19 @@ public class Book {
 	private LocalDate lastUpdatedOn;
 
 	public Book() {}
+	
+	public Book(String title, String author, CategoryEnum category, String description, String isbn, double price,
+			LocalDate publishDate, LocalDate lastUpdatedOn) {
+		super();
+		this.title = title;
+		this.author = author;
+		this.category = category;
+		this.description = description;
+		this.isbn = isbn;
+		this.price = price;
+		this.publishDate = publishDate;
+		this.lastUpdatedOn = lastUpdatedOn;
+	}
 
 	public Book(int bookId, String title, String author, CategoryEnum category, String description, String isbn,
 			double price, LocalDate publishDate, LocalDate lastUpdatedOn) {
@@ -47,18 +60,7 @@ public class Book {
 		this.lastUpdatedOn = lastUpdatedOn;
 	}
 
-	public Book(String title, String author, CategoryEnum category, String description, String isbn, double price,
-			LocalDate publishDate, LocalDate lastUpdatedOn) {
-		super();
-		this.title = title;
-		this.author = author;
-		this.category = category;
-		this.description = description;
-		this.isbn = isbn;
-		this.price = price;
-		this.publishDate = publishDate;
-		this.lastUpdatedOn = lastUpdatedOn;
-	}
+
 
 	public int getBookId() {
 		return bookId;

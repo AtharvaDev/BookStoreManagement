@@ -21,7 +21,6 @@ import com.project.service.BookService;
 import com.project.service.ReviewService;
 
 
-
 @RestController
 
 @ComponentScan(basePackages = "com.project")

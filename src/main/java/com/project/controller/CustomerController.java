@@ -55,5 +55,10 @@ public class CustomerController {
 		 service.deleteCustomer(id);
 		return id+" deleted";
 	}
+	
+	@GetMapping("/book/{bookID}")
+	public List<Customer> listAllCustomersByBook(@PathVariable("bookID") int bookID) {
+		return service.listAllCustomersByBook(bookID);
+	}
 
 }

@@ -43,9 +43,10 @@ public class CustomerService implements ICustomerService  {
 	}
 
 	@Override
-	public List<Customer> listAllCustomersByBook(Book book) {
+	public List<Customer> listAllCustomersByBook(int bookID) {
 		// TODO Auto-generated method stub
-		return null;
+		return repo.listAllCustomersByBook(bookID);
+//		return null;
 	}
 
 }

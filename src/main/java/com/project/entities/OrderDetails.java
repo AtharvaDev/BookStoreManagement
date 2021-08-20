@@ -1,5 +1,6 @@
 package com.project.entities;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -8,30 +9,36 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-
-
 @Entity
 @Table(name = "orderDetails")
 public class OrderDetails {
 
-	//About to comment this variable
+	// About to comment this variable
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int orderDetailsId;
-	
-	@OneToOne()
+
+	@OneToOne(cascade = CascadeType.ALL)
 	private Book book;
-	
-	@OneToOne()
+
+	@OneToOne(cascade = CascadeType.ALL)
 	private BookOrder bookOrder;
 	private int quantity;
 	private double subtotal;
-	
-	public OrderDetails() {}
 
-	public OrderDetails(int orderDetailsId,
-			Book book, BookOrder bookOrder, int quantity, double subtotal) {
-	
+	public OrderDetails() {
+	}
+
+	public OrderDetails(Book book, BookOrder bookOrder, int quantity, double subtotal) {
+		super();
+		this.book = book;
+		this.bookOrder = bookOrder;
+		this.quantity = quantity;
+		this.subtotal = subtotal;
+	}
+
+	public OrderDetails(int orderDetailsId, Book book, BookOrder bookOrder, int quantity, double subtotal) {
+
 		this.orderDetailsId = orderDetailsId;
 		this.book = book;
 		this.bookOrder = bookOrder;
@@ -85,6 +92,4 @@ public class OrderDetails {
 				+ subtotal + "]";
 	}
 
-
-	
 }
