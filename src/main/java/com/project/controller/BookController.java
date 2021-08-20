@@ -16,48 +16,87 @@ import org.springframework.web.bind.annotation.RestController;
 import com.project.entities.Book;
 import com.project.entities.Customer;
 import com.project.entities.OrderDetails;
+import com.project.entities.Review;
 import com.project.service.BookService;
+import com.project.service.ReviewService;
 
 
 
 @RestController
-@RequestMapping("/books")
+
 @ComponentScan(basePackages = "com.project")
 public class BookController {
 	
 	@Autowired
 	BookService bookService;
+	
+	@Autowired
+	ReviewService reviewService;
 
-	@GetMapping("/test")
+	@GetMapping("/books/test")
 	public String test() {
 		return "Inside BooksController";
 	}
 	
-	@GetMapping("/")
+	@GetMapping("/reviews/test1")
+	public String test1() {
+		return "Inside ReviewsController";
+	}
+	
+	@GetMapping("/books")
 	public List<Book> listAllBooks(){
 		return bookService.listAllBooks();
 	}
 	
-	@GetMapping("/{bookID}")
+	@GetMapping("/books/{bookID}")
 	public Book viewBook(@PathVariable("bookID") int bookID) {
 		return bookService.viewBook(bookID);
 	}
 	
 	
-	@PostMapping("/")
+	@PostMapping("/books")
 	public void addBook(@RequestBody Book b) {
 		 bookService.createBook(b);
 	}
 	
-	@PutMapping("/{bookID}")
+	@PutMapping("/books/{bookID}")
 	public String editBook(@RequestBody Book b,@PathVariable("bookID") int bookID) {
 		return bookService.editBook(b, bookID);	
 	}
 	
-	@DeleteMapping("/{bookID}")
+	@DeleteMapping("/books/{bookID}")
 	public String deleteBook(@PathVariable("bookID") int bookID) {
 		return bookService.deleteBook(bookID);
 	}
+	
+	//review methods
+	
+	@GetMapping("/reviews")
+	public List<Review> listAllReviews(){
+		return reviewService.listAllReviews();
+	}
+	
+	
+	@GetMapping("/reviews/{reviewID}")
+	public Review viewReview(@PathVariable("reviewID") int reviewID) {
+		return reviewService.viewReview(reviewID);
+	}
+	
+	@PostMapping("/reviews")
+	public void addReviews(@RequestBody Review review) {
+		reviewService.addReview(review);
+	}
+	
+	@PutMapping("/reviews/{reviewID}")
+	public String updateReview(@RequestBody Review review,@PathVariable("reviewID") int reviewID) {
+		return reviewService.updateReview(review, reviewID);	
+	}
+	
+	@DeleteMapping("/reviews/{reviewID}")
+	public String deleteReview(@PathVariable("reviewID") int reviewID) {
+		return reviewService.deleteReview(reviewID);
+	}
+	
 	
 	
 }
