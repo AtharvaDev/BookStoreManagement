@@ -14,4 +14,6 @@ public interface IBookRepository extends JpaRepository<Book, Integer>{
 //	public List<Book> findByCategory(String cat);
 //	public List<Book> search(String keyword);
 //	public List<Book> listRecentlyAdded();
+	
+	 
 }

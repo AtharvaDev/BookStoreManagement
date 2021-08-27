@@ -32,6 +32,10 @@ public class Customer {
 	public Customer() {
 	}
 
+	public Customer(int customerId) {
+		super();
+		this.customerId = customerId;
+	}
 
 	public Customer(String email, String fullName, String password, Address address, String mobileNumber,
 			LocalDate registerOn, String userType) {
@@ -121,7 +125,6 @@ public class Customer {
 	public void setUserType(String userType) {
 		this.userType = userType;
 	}
-
 
 	@Override
 	public String toString() {

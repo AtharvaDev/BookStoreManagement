@@ -31,6 +31,11 @@ public class BookController {
 	
 	@Autowired
 	ReviewService reviewService;
+	
+	@GetMapping("/")
+	public String baseTest() {
+		return "Inside BookStoreManagementApplication";
+	}
 
 	@GetMapping("/books/test")
 	public String test() {
