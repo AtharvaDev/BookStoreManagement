@@ -22,6 +22,6 @@ public interface IReviewRepository extends JpaRepository<Review,Integer> {
 //	public List<Review> listAllReviewsByCustomer(Customer c);
 //	public List<Book> listMostFavoredBooks();
 	
-
+	   
 
 }

@@ -12,8 +12,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-@Entity(name = "book")
-@Table(name = "book")
+//@Entity(name = "book")
+//@Table(name = "book")
+@Entity
 public class Book {
 	
 	@Id
